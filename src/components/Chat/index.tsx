@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Send } from "@mui/icons-material";
 import { deepOrange, deepPurple } from "@mui/material/colors";
+import cosineSimilarity from "../../utils/cosineSimilarity";
 
 const FAQ = [
   `Q: 会社の基本情報はどこで確認できますか？
@@ -90,14 +91,6 @@ const faqElement = FAQ.map((faq, index) => {
 type EmbeddingResult = {
   faq: string;
   vector: number[];
-};
-
-// cosineSimilarityの実装
-const cosineSimilarity = (a: number[], b: number[]) => {
-  const dotProduct = a.reduce((acc, cur, i) => acc + cur * b[i], 0);
-  const magnitudeA = Math.sqrt(a.reduce((acc, cur) => acc + cur * cur, 0));
-  const magnitudeB = Math.sqrt(b.reduce((acc, cur) => acc + cur * cur, 0));
-  return dotProduct / (magnitudeA * magnitudeB);
 };
 
 const Chat: React.FC = () => {
