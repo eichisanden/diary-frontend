@@ -5,6 +5,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: prod
     steps:
       - run: echo ${{vars.MY_VARIABLE}}
